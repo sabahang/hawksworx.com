@@ -44,7 +44,7 @@ My preferred method is to host on [Netlify](http://www.netlify.com) which can ru
 
 
 ## Clone and deploy your own
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/philhawksworth/hawksworx.com)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sabahang/hawksworx.com)
 
 
 
