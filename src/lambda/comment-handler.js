@@ -48,6 +48,7 @@ export function handler(event, context, callback) {
     // post the notification to Slack
     request.post({url:slackURL, json: slackPayload}, function(err, httpResponse, body) {
       var msg;
+      console.log(slackURL, slackPayload);
       if (err) {
         msg = 'Post to Slack failed:' + err;
       } else {
