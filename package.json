@@ -1,7 +1,7 @@
 {
-  "name": "hawksworx.com",
+  "name": "mindworks.com",
   "version": "2.0.1",
-  "description": "Phil Hawksworth's personal website - hawksworx.com",
+  "description": "sabahang personal blog - mindworks.com",
   "scripts": {
     "start": "gulp build & gulp watch & ELEVENTY_ENV=dev eleventy --serve & yarn run start:lambda",
     "build": "gulp build & ELEVENTY_ENV=prod eleventy && yarn run build:lambda",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/sabahang/hawksworx.com"
   },
-  "author": "Phil Hawksworth",
+  "author": "sabahang",
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",

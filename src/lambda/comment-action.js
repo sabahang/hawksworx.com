@@ -29,6 +29,8 @@ function purgeComment(id) {
 */
 export function handler(event, context, callback) {
 
+  console.log("saba", process.env.NETLIFY_TOKEN);
+
   // parse the payload
   var body = event.body.split("payload=")[1];
   var payload = JSON.parse(unescape(body));
@@ -64,7 +66,7 @@ export function handler(event, context, callback) {
         console.log("Posting to", approvedURL);
         console.log(payload);
 
-        // post the comment to the approved lost
+        // post the comment to the approved post
         request.post({ 'url': approvedURL, 'formData': payload }, function (err, httpResponse, body) {
           var msg;
           if (err) {
