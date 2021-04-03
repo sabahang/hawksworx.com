@@ -25,7 +25,7 @@ gulp.task('css', function() {
 */
 gulp.task('js', function() {
   return gulp.src("./src/js/**/*.js")
-    .pipe(concat('hawksworx.js'))
+    .pipe(concat('mindworks.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./src/site/_includes/js'));
 });

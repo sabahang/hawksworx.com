@@ -13,9 +13,9 @@ var oauth_token = process.env.NETLIFY_TOKEN;
   delete this submission via the api
 */
 function purgeComment(id) {
-  var url = "https://api.netlify.com/api/v1/submissions/" +id + "?access_token=" + oauth_token;
-  request.delete(url, function(err, response, body){
-    if(err){
+  var url = "https://api.netlify.com/api/v1/submissions/" + id + "?access_token=" + oauth_token;
+  request.delete(url, function (err, response, body) {
+    if (err) {
       return console.log(err);
     } else {
       return console.log("Comment deleted from queue.");
@@ -35,24 +35,24 @@ export function handler(event, context, callback) {
   var method = payload.actions[0].name
   var id = payload.actions[0].value
 
-  if(method == "delete") {
+  if (method == "delete") {
     purgeComment(id);
     callback(null, {
       statusCode: 200,
       body: "Comment deleted"
     });
-  } else if (method == "approve"){
+  } else if (method == "approve") {
 
-    get the comment data from the queue
-    var url = "https://api.netlify.com/api/v1/submissions/" +id + "?access_token=" + oauth_token;
+    // get the comment data from the queue
+    var url = "https://api.netlify.com/api/v1/submissions/" + id + "?access_token=" + oauth_token;
 
-    request(url, function(err, response, body){
-      if(!err && response.statusCode === 200){
+    request(url, function (err, response, body) {
+      if (!err && response.statusCode === 200) {
         var data = JSON.parse(body).data;
 
         // now we have the data, let's massage it and post it to the approved form
         var payload = {
-          'form-name' : "approved-blog-comments",
+          'form-name': "approved-blog-comments",
           'path': data.path,
           'received': new Date().toString(),
           'email': data.email,
@@ -65,7 +65,7 @@ export function handler(event, context, callback) {
         console.log(payload);
 
         // post the comment to the approved lost
-        request.post({'url':approvedURL, 'formData': payload }, function(err, httpResponse, body) {
+        request.post({ 'url': approvedURL, 'formData': payload }, function (err, httpResponse, body) {
           var msg;
           if (err) {
             msg = 'Post to approved comments failed:' + err;
@@ -84,8 +84,5 @@ export function handler(event, context, callback) {
         });
       }
     });
-
-  } else {
-    console.log("wow");
   }
 }

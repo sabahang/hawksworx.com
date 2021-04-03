@@ -53,9 +53,6 @@ module.exports = function(eleventyConfig) {
   });
 
   // other config settings
-
-  // make the prime target act like prod
-  env = (env=="prime") ? "prod" : env;
   return {
     dir: {
       input: "src/site",

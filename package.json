@@ -4,7 +4,6 @@
   "description": "Phil Hawksworth's personal website - hawksworx.com",
   "scripts": {
     "start": "gulp build & gulp watch & ELEVENTY_ENV=dev eleventy --serve & yarn run start:lambda",
-    "prime": "gulp build & ELEVENTY_ENV=prime eleventy",
     "build": "gulp build & ELEVENTY_ENV=prod eleventy && yarn run build:lambda",
     "dryrun": "gulp build & ELEVENTY_ENV=dev eleventy",
     "build:lambda": "netlify-lambda build src/lambda",

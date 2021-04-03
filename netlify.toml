@@ -39,13 +39,6 @@
   to = "/blog/:slug"
   status = 301
 
-# A serverless cgi-bin!
-# https://www.hawksworx.com/cgi-bin/hello/friend
- [[redirects]]
-  from = "/cgi-bin/hello/:name"
-  to = "/.netlify/functions/hello?name=:name"
-  status = 200
-
 # 404s
 [[redirects]]
   from = "*"
