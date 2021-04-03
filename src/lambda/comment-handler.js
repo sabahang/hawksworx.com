@@ -9,7 +9,7 @@ require('dotenv').config()
 export function handler(event, context, callback) {
 
   // get the arguments from the notification
-  // var body = JSON.parse(event.body);
+  var body = JSON.parse(event.body);
 
   // prepare call to the Slack API
   var slackURL = process.env.SLACK_WEBHOOK_COMMENT_URL;
