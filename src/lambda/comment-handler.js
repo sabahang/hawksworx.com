@@ -6,12 +6,12 @@ var request = require("request");
 require('dotenv').config()
 
 
-export function handler(event, context, callback) {
-
-  console.log(event, context, callback);
+exports.handler = async function (event, context) {
 
   // get the arguments from the notification
   var body = JSON.parse(event.body);
+
+  console.log("saba", body);
 
   // prepare call to the Slack API
   var slackURL = process.env.SLACK_WEBHOOK_COMMENT_URL;
@@ -55,11 +55,10 @@ export function handler(event, context, callback) {
       } else {
         msg = 'Post to Slack successful!  Server responded with:' + body;
       }
-      callback(null, {
+      return {
         statusCode: 200,
         body: msg
-      })
-      return console.log(msg);
+    };
     });
 
 }
