@@ -10,6 +10,7 @@ exports.handler = async function (event, context) {
 
   // get the arguments from the notification
   var body = JSON.parse(event.body);
+  var msg;
 
   console.log("saba", body);
 
@@ -17,7 +18,7 @@ exports.handler = async function (event, context) {
   var slackURL = process.env.SLACK_WEBHOOK_COMMENT_URL;
   var slackPayload = {
     "text": "New comment on hawksworx.com",
-	  "attachments": [
+    "attachments": [
       {
         "fallback": "New comment on hawksworx.com",
         "color": "#444",
@@ -45,20 +46,20 @@ exports.handler = async function (event, context) {
           }
         ]
       }]
-    };
+  };
+  console.log("saba", slackPayload);
 
-    // post the notification to Slack
-    request.post({url:slackURL, json: slackPayload}, function(err, httpResponse, body) {
-      var msg;
-      if (err) {
-        msg = 'Post to Slack failed:' + err;
-      } else {
-        msg = 'Post to Slack successful!  Server responded with:' + body;
-      }
-      return {
-        statusCode: 200,
-        body: msg
-    };
-    });
+  // post the notification to Slack
+  request.post({ url: slackURL, json: slackPayload }, function (err, httpResponse, body) {
+    if (err) {
+      msg = 'Post to Slack failed:' + err;
+    } else {
+      msg = 'Post to Slack successful!  Server responded with:' + body;
+    }
+  });
+  return {
+    statusCode: 200,
+    body: msg
+  };
 
 }
