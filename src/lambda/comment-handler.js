@@ -8,6 +8,8 @@ require('dotenv').config()
 
 export function handler(event, context, callback) {
 
+  console.log(event, context, callback);
+
   // get the arguments from the notification
   var body = JSON.parse(event.body);
 
@@ -48,7 +50,6 @@ export function handler(event, context, callback) {
     // post the notification to Slack
     request.post({url:slackURL, json: slackPayload}, function(err, httpResponse, body) {
       var msg;
-      console.log(slackURL, slackPayload);
       if (err) {
         msg = 'Post to Slack failed:' + err;
       } else {
