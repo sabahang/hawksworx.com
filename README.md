@@ -36,7 +36,7 @@ yarn start
 
 ## Deployment
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/793e740d-7c84-4e39-b528-a34be81cd71e/deploy-status)](https://app.netlify.com/sites/hawksworx/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f8ced95a-ea9d-40f9-b869-c4195dbd6d3a/deploy-status)](https://app.netlify.com/sites/hawksworx/deploys)
 
 The build command `yarn run build` will generate a set of static assets in a `dist` folder which can be deployed to any web hosting service.
 
